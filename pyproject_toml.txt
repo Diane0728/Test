@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml4cv-vlm-benchmark"
+version = "1.0.0"
+description = "Vision-Language Model Benchmark for ML4CV Course"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "ML4CV Project", email = "student@university.edu"}
+]
+keywords = ["machine-learning", "computer-vision", "vision-language-models", "benchmark", "quantization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "transformers>=4.40.0",
+    "accelerate",
+    "datasets",
+    "pycocotools",
+    "tqdm",
+    "requests",
+    "nltk",
+    "scikit-learn",
+    "evaluate",
+    "Pillow>=8.0.0",
+    "numpy>=1.20.0",
+    "matplotlib>=3.5.0",
+    "pandas>=1.3.0",
+    "psutil",
+]
+
+optional-dependencies.dev = [
+    "pytest>=6.0",
+    "black",
+    "flake8",
+    "isort",
+]
+
+optional-dependencies.colab = [
+    "google-colab",
+    "ipywidgets",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/ml4cv-vlm-benchmark"
+Repository = "https://github.com/yourusername/ml4cv-vlm-benchmark"
+Issues = "https://github.com/yourusername/ml4cv-vlm-benchmark/issues"
+
+[project.scripts]
+vlm-benchmark = "ml4cv_vlm_benchmark.benchmark:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
